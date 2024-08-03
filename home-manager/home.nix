@@ -44,7 +44,7 @@
     shellAliases = {
       resystem = "sudo nixos-rebuild switch";
       rehome = "home-manager switch";
-      cleanup = "sudo nix-store --gc && nix-store --gc";
+      cleanup = "sudo nix-store --gc";
 
       girlboss = "sudo !!";
       nano = "echo \"ERROR: could not open nano: normie editor detected\"";
@@ -78,24 +78,30 @@
 
   home.packages = [
     pkgs.hello
+
     pkgs.neovim
     pkgs.font-awesome
+    pkgs.emacs
+    pkgs.nerdfonts
+    pkgs.iosevka
+
     pkgs.clang
     pkgs.gnumake
+
+    pkgs.alacritty
+    pkgs.python3
+    pkgs.tmux
+    pkgs.brightnessctl
+
     pkgs.git
     pkgs.zsh
     pkgs.wget
     pkgs.unzip
     pkgs.stow
     pkgs.eza
+
     pkgs.discord
-    pkgs.emacs
-    pkgs.nerdfonts
-    pkgs.iosevka
-    pkgs.alacritty
-    pkgs.python3
-    pkgs.tmux
-    pkgs.brightnessctl
+    pkgs.lutris
 
     # Terminal "script"
     (pkgs.writeCBin "terminal" (builtins.readFile "${./terminal.c}"))
