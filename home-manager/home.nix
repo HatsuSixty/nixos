@@ -44,6 +44,7 @@
     shellAliases = {
       resystem = "sudo nixos-rebuild switch";
       rehome = "home-manager switch";
+      cleanup = "sudo nix-store --gc && nix-store --gc";
 
       girlboss = "sudo !!";
       nano = "echo \"ERROR: could not open nano: normie editor detected\"";
@@ -94,6 +95,7 @@
     pkgs.alacritty
     pkgs.python3
     pkgs.tmux
+    pkgs.brightnessctl
 
     # Terminal "script"
     (pkgs.writeCBin "terminal" (builtins.readFile "${./terminal.c}"))
@@ -108,6 +110,37 @@
   # Home files
   home.file = {
     ".hello".text = "hii welcome :3";
+
+    ".tmux.conf".text = ''
+      ## Keybindings
+
+      # Prefix
+
+      unbind C-b
+      set -g prefix C-x
+      bind C-x send-prefix
+
+      # Emacs style keys
+
+      set -g mode-keys emacs
+      set -g status-keys emacs
+      set -s escape-time 0
+
+      # Switch between panes
+
+      bind -n S-left prev
+      bind -n S-right next
+
+      ## Fix terminal colors
+
+      set -g default-terminal "tmux-256color"
+      set -ag terminal-overrides ",xterm-256color:RGB"
+
+      ## Status bar colors
+
+      set -g status-bg color237
+      set -g status-fg color255
+    '';
 
     ".config/emacs" = {
       source = ./emacs;
