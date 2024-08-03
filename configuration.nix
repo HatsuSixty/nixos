@@ -93,7 +93,10 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
+
+  # Enable flatpak
+  services.flatpak.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;
