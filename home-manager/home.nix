@@ -102,6 +102,7 @@
 
     pkgs.discord
     pkgs.lutris
+    pkgs.gimp
 
     # Terminal "script"
     (pkgs.writeCBin "terminal" (builtins.readFile "${./terminal.c}"))
