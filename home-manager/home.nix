@@ -151,6 +151,11 @@
       source = ./alacritty;
       recursive = true;
     };
+
+    ".config/nvim" = {
+      source = ./nvim;
+      recursive = true;
+    };
   };
 
   # Desktop entries
