@@ -6,9 +6,14 @@ My NixOS configuration and dotfiles.
 
 *Actual installer coming soon*.  
 
-For now, make sure you have [`home-manager`](https://github.com/nix-community/home-manager) installed, and copy `./home-manager` to `~/.config/home-manager`, and `./configuration.nix` to `/etc/nixos/configuration.nix`. Then run the following commands:
+For now, copy `./configuration.nix` to `/etc/nixos/configuration.nix`, and run the command:
+
+```console
+$ sudo nixos-rebuild switch
+```
+
+Then, set a password for the user `hatsu`, log in as that user, install [`home-manager`](https://github.com/nix-community/home-manager), and copy `./home-manager` to `~/.config/home-manager`. After that, you can run:
 
 ```
-$ sudo nixos-rebuild switch
 $ home-manager switch
 ```
